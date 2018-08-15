@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="chat-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Flight</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Check in</th>
+                        <th scope="col">Depature</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for flight in flights %}
+                    <tr id={{ flight.id }}>
+                        <th scope="row">{{ flight.flight }}</th>
+                        <td> {{flight.destination }} </td>
+                        <td> {{ flight.check_in }} </td>
+                        <td> {{ flight.depature }} </td>
+                        <td> {{ flight.status }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

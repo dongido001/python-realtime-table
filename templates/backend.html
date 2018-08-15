@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST" id="target"> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="flight" placeholder="Flight">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="destination" placeholder="Destination">
+        </div>
+        <div class="form-group">
+            <input 
+               type="text" 
+               class="form-control datetime" 
+               name="check_in" 
+               placeholder="Check in"
+            >
+        </div>
+        <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control datetime" 
+              name="depature" 
+              placeholder="Depature"
+            >
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="status" placeholder="Status">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+    </form>
+    
+    <br />
+
+    <div class="table-responsive">
+        <table class="table" id="flights">
+            <thead>
+                <tr>
+                    <th scope="col">Flight</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Check in</th>
+                    <th scope="col">Depature</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for flight in flights %}
+                <tr id={{ flight.id }}>
+                    <th scope="row">{{ flight.flight }}</th>
+                    <td> {{flight.destination }} </td>
+                    <td> {{ flight.check_in }} </td>
+                    <td> {{ flight.depature }} </td>
+                    <td> {{ flight.status }} </td>
+                    <td> <a href="/edit/{{ flight.id }}">Edit</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

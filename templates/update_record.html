@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST" id="target"> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="flight" value="{{ data.flight }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="destination" value="{{ data.destination }}">
+        </div>
+        <div class="form-group">
+            <input 
+               type="text" 
+               class="form-control datetime"
+               name="check_in" 
+               value="{{ data.check_in }}"
+            >
+        </div>
+        <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control datetime" 
+              name="depature" 
+              value="{{ data.depature }}"
+            >
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="status" value="{{ data.status }}">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Update</button>
+    </form>
+{% endblock %}
