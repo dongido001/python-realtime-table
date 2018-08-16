@@ -1,6 +1,6 @@
 # Build a realtime table using Flask and Pusher Channels
 
-This is a demo application showing how to build a realtime table using Flask and Pusher. You can read the tutorial on how it was built [here](https://pusher.com/tutorials/)
+This is a demo application showing how to build a realtime table using Flask and Pusher. You can read the tutorial on how it was built [here](https://pusher.com/tutorials/live-table-flask)
 
 ## Getting Started
 
