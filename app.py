@@ -85,7 +85,7 @@ def update_record(id):
         new_flight.check_in = new_flight.check_in.strftime("%d-%m-%Y %H:%M %p")
         new_flight.depature = new_flight.depature.strftime("%d-%m-%Y %H:%M %p")
 
-        return render_template('update_record.html', data=new_flight)
+        return render_template('update_flight.html', data=new_flight)
 
 # run Flask app
 if __name__ == "__main__":
