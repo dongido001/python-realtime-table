@@ -44,7 +44,7 @@ First, clone this repository to your local machine:
 To get the app running:
 
  - From a command line, make sure you are in the project's root folder - `realtime-table`
- - Creat a virtual environment:
+ - Create a virtual environment:
  ```
  python3 -m venv env
  ```
