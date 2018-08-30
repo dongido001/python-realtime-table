@@ -20,8 +20,8 @@
             <input 
               type="text" 
               class="form-control datetime" 
-              name="depature" 
-              placeholder="Depature"
+              name="departure" 
+              placeholder="departure"
             >
         </div>
         <div class="form-group">
@@ -40,7 +40,7 @@
                     <th scope="col">Flight</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Check in</th>
-                    <th scope="col">Depature</th>
+                    <th scope="col">departure</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -51,7 +51,7 @@
                     <th scope="row">{{ flight.flight }}</th>
                     <td> {{flight.destination }} </td>
                     <td> {{ flight.check_in }} </td>
-                    <td> {{ flight.depature }} </td>
+                    <td> {{ flight.departure }} </td>
                     <td> {{ flight.status }} </td>
                     <td> <a href="/edit/{{ flight.id }}">Edit</a> </td>
                 </tr>

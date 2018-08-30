@@ -29,10 +29,10 @@ def backend():
         flight = request.form["flight"]
         destination = request.form["destination"]
         check_in = datetime.strptime(request.form['check_in'], '%d-%m-%Y %H:%M %p')
-        depature = datetime.strptime(request.form['depature'], '%d-%m-%Y %H:%M %p')
+        departure = datetime.strptime(request.form['departure'], '%d-%m-%Y %H:%M %p')
         status = request.form["status"]
 
-        new_flight = Flight(flight, destination, depature, check_in, status)
+        new_flight = Flight(flight, destination, departure, check_in, status)
         db_session.add(new_flight)
         db_session.commit()
 
@@ -41,7 +41,7 @@ def backend():
             "flight": flight,
             "destination": destination,
             "check_in": request.form['check_in'],
-            "depature": request.form['depature'],
+            "departure": request.form['departure'],
             "status": status}
             
         pusher_client.trigger('table', 'new-record', {'data': data })
@@ -57,14 +57,14 @@ def update_record(id):
         flight = request.form["flight"]
         destination = request.form["destination"]
         check_in = datetime.strptime(request.form['check_in'], '%d-%m-%Y %H:%M %p')
-        depature = datetime.strptime(request.form['depature'], '%d-%m-%Y %H:%M %p')
+        departure = datetime.strptime(request.form['departure'], '%d-%m-%Y %H:%M %p')
         status = request.form["status"]
 
         update_flight = Flight.query.get(id)
         update_flight.flight = flight
         update_flight.destination = destination
         update_flight.check_in = check_in
-        update_flight.depature = depature
+        update_flight.departure = departure
         update_flight.status = status
 
         db_session.commit()
@@ -74,7 +74,7 @@ def update_record(id):
             "flight": flight,
             "destination": destination,
             "check_in": request.form['check_in'],
-            "depature": request.form['depature'],
+            "departure": request.form['departure'],
             "status": status}
 
         pusher_client.trigger('table', 'update-record', {'data': data })
@@ -83,7 +83,7 @@ def update_record(id):
     else:
         new_flight = Flight.query.get(id)
         new_flight.check_in = new_flight.check_in.strftime("%d-%m-%Y %H:%M %p")
-        new_flight.depature = new_flight.depature.strftime("%d-%m-%Y %H:%M %p")
+        new_flight.departure = new_flight.departure.strftime("%d-%m-%Y %H:%M %p")
 
         return render_template('update_flight.html', data=new_flight)
 
